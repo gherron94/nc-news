@@ -5,12 +5,11 @@ import axios from 'axios';
 
   const [usersList, setUsersList]= useState([])
 
-  useEffect(() => {
     axios.get(`https://news-api-so0z.onrender.com/api/users`)
       .then(({data}) => {
         setUsersList(data.users)
       })
-  }, [])
+  
 
 
   function switchUser(event) {
