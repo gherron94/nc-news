@@ -51,10 +51,6 @@ export default function Articles() {
         {articleList.map(article => {
           const dateCreated = `${new Date(article.created_at)}`;
 
-          // <NavLink to={`/items/${item.item_id}`}>
-          // <h3>{item.item_name}</h3>
-          // </NavLink>
-
           return (
             <li key={article.article_id}>
               <NavLink to={`/articles/${article.article_id}`}>
