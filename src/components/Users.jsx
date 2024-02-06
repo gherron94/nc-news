@@ -1,17 +1,16 @@
-import {useEffect, useState} from 'react'
-import axios from 'axios';
+import {useState} from 'react'
+import newsApi from './api'
+
 
   export default function Users({signedInUser, setSignedInUser}) {
 
   const [usersList, setUsersList]= useState([])
 
-    axios.get(`https://news-api-so0z.onrender.com/api/users`)
+  newsApi.get('/users')
       .then(({data}) => {
         setUsersList(data.users)
       })
   
-
-
   function switchUser(event) {
     const username = event.target.parentNode.childNodes[0].innerText;
     const avatar_url = event.target.parentNode.childNodes[1].src;
