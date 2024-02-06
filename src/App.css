@@ -131,7 +131,7 @@ nav ul li {
   text-align: left;
 }
 
-a {
+nav ul li a {
   color: white;
   text-decoration: none;
 }
@@ -200,4 +200,14 @@ a {
 .flex-box-user p {
 text-align: center;
   margin: 8px auto 0 auto;
+}
+
+.single-article {
+  border: solid 1px black;
+  width: 90%;
+  margin: 125px auto 0 auto;
+}
+
+.single-article h3, .single-article p {
+  margin: 10px;
 }

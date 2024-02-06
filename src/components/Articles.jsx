@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import newsApi from './api'
+import { NavLink } from 'react-router-dom'
 
 export default function Articles() {
 
@@ -50,9 +51,15 @@ export default function Articles() {
         {articleList.map(article => {
           const dateCreated = `${new Date(article.created_at)}`;
 
+          // <NavLink to={`/items/${item.item_id}`}>
+          // <h3>{item.item_name}</h3>
+          // </NavLink>
+
           return (
             <li key={article.article_id}>
-               <h3>{article.title}</h3>
+              <NavLink to={`/articles/${article.article_id}`}>
+              <h3>{article.title}</h3>
+              </NavLink>
                <p>Topic: {article.topic}</p>
                <p>By: {article.author}</p>
                <p>Total Votes: {article.votes}</p>

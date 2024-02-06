@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import Articles from './components/Articles'
 import Users from './components/Users'
+import SingleArticle from './components/SingleArticle'
 import { useState } from 'react'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/articles" element={<Articles />} />
+      <Route path="/articles/:article_id" element={<SingleArticle />} />
       <Route path="/users" element={<Users setSignedInUser={setSignedInUser} signedInUser={signedInUser} />} />
     </Routes>
     </main>
