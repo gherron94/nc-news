@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import axios from 'axios';
+import newsApi from './api'
 
 export default function Articles() {
 
@@ -12,7 +12,7 @@ export default function Articles() {
   const pageLimit = Math.ceil(totalArticles / 10)
 
   useEffect(() => {
-    axios.get(`https://news-api-so0z.onrender.com/api/articles?p=${pageNumber}`)
+    newsApi.get(`/articles?p=${pageNumber}`)
       .then(({data}) => {
         setArticleList(data.articles)
         setTotalArticles(data.total_count)
