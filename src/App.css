@@ -28,44 +28,77 @@ main h2 {
   padding-top: 10px
 }
 
-h3 {
+.flex-box ul li h3 {
   margin: 5px 0 15px 10px;
   font-size: 18px;
 }
 
-header {
- background-color: white;
- border-bottom: black 1px solid;
- position: fixed;
- top: 0;
- width: 100%;
- overflow: hidden;
+#loggedIn img {
+height: 35px;
+width: 35px;
+display: block;
+margin: auto 0;
 }
 
-ul {
+#loggedIn {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-left: auto;
+  color: white;
+  height: 100%;
+}
+
+#loggedIn p {
+  font-size: 15px;
+  margin: auto 0;
+}
+
+#loggedIn p, #loggedIn img {
+  padding: 0 5px;
+}
+
+#currentUser {
+  margin-left: auto;
+  height: 100%;
+}
+
+header {
+  background-color: white;
+  border-bottom: black 1px solid;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+nav ul {
   display: flex;
   justify-content: flex-start ;
-  list-style: none;
   margin: 0;
   height: 100%;
   padding: 0;
 } 
 
+ul {
+  list-style: none;
+}
+
 nav {
   border-top: solid black 1px;
   width: 100%;
   height: 40px;
-  list-style: none;
   padding: 0;
   background-color: black;
 } 
 
-li {
-  padding: 0 30px;
+nav ul li {
+  padding: 0 10px;
   margin: auto 0;
+  font-size: 15px;
 }
 
-li p {
+.flex-box ul li p {
   margin: 0 0 2.5px 10px;
 }
 
@@ -94,36 +127,77 @@ li p {
   height: 205px;
  }
 
- .flex-box ul li {
+.flex-box ul li {
   text-align: left;
- }
+}
 
- a {
+a {
   color: white;
   text-decoration: none;
- }
+}
 
- #pageButtons {
+#pageButtons {
   display: flex;
   justify-content: center;
   width: 50%;
   margin: 0 auto;
   width: 225px;
- }
+}
 
- .nextButton, .previousButton{  
+.nextButton, .previousButton{  
   padding: 10px 0;
- }
+}
 
- #pageButtons button {
+#pageButtons button {
   width: 100px;
   height: 25px;
   text-align: center;
   align-items: center;
   margin: 0;
- }
+}
 
- .total {
+.total {
   text-align: center;
   margin: 5px;
- }
+}
+
+.flex-box-user ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.flex-box-user ul li {
+  border: #000 solid 1px;
+  border-radius: 15px;
+  margin: 5px;
+  padding: 0;
+  width: 45%;
+  height: 130px;
+}
+
+.flex-box-user ul li h3 {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.flex-box-user img {
+  height: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.flex-box-user button {
+  display: block;
+  margin: 8px auto 0 auto;
+}
+
+.flex-box-user p {
+text-align: center;
+  margin: 8px auto 0 auto;
+}
