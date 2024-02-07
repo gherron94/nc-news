@@ -158,7 +158,7 @@ ul {
   flex-direction: column;
   padding: 0;
   margin: 0 auto;
-  width: 75%;
+  width: 85%;
 }
 
 .articles ul li {
@@ -214,11 +214,27 @@ ul {
 /* SINGLE ARTICLE */
 
 .single-article {
-  width: 75%;
-  margin: 25px auto 0 auto;
+  margin:0 auto;
+  padding: 10px 0;
 }
 
-.single-article h3, .single-article p {
+.vote-buttons {
+  margin:0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.vote-button {
+  width: 75px;
+  text-align: center;
+}
+
+.article-info {
+  width: 90%;
+  margin: 25px auto 10px auto;
+}
+
+.article-info h3, .article-info p {
   margin: 10px;
 }
   
@@ -226,7 +242,8 @@ ul {
 
 .commentsButton {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 10px auto;
+
 }
 
 .comments-flex ul {
@@ -236,12 +253,12 @@ ul {
   justify-content: center;
   padding: 0;
   margin: 0 auto;
-  width: 85%;
+  width: 95%;
 }
 
 .comments-flex ul li {
   border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
-  margin: 5px;
+  margin: 5px 0;
   padding: 0;
   width: 100%;
   min-height: 125px;
@@ -249,7 +266,7 @@ ul {
 
 .comments-flex ul li p, .comments-flex ul li h3 {
   font-size: 15px;
-  margin: 5px;
+  margin: 5px 0 ;
 } 
 
 #commentsButtons {
