@@ -7,10 +7,7 @@ export default function SingleArticle() {
 
   const { article_id } = useParams()
   const [singleArticle, setSingleArticle] = useState({});
-  const [totalComments, setTotalComments] = useState(0)
 
-  const pageLimit = Math.ceil(totalComments / 10)
-  
   useEffect(() => {
     newsApi.get(`/articles/${article_id}`)
     .then(({data}) => {
@@ -28,8 +25,7 @@ export default function SingleArticle() {
         <p>Total Votes: {singleArticle.votes}</p>
         <p>Date created: {`${new Date(singleArticle.created_at)}`}</p>
       </div>
-      <p className='total'>Total comments:  {totalComments}</p>   
-      {<Comments totalComments={totalComments} setTotalComments={setTotalComments}></Comments>}
+      {<Comments></Comments>}
       </>
    )
 }

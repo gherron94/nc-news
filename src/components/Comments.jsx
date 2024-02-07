@@ -3,14 +3,16 @@ import {useState, useEffect} from 'react'
 import newsApi from './api';
 import CommentsButton from './CommentsButton';
 
-export default function Comments({totalComments, setTotalComments}) {
+export default function Comments() {
 
   const { article_id } = useParams()
   const [commentsList, setCommentsList] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [isFirstPage, setIsFirstPage] = useState(true)
   const [isLastPage, setIsLastPage] = useState(false)
-
+  const [hasComments, setHasComments] = useState(true)
+  const [totalComments, setTotalComments] = useState(0)
+  
   const pageLimit = Math.ceil(totalComments / 10)
 
   useEffect(()=> {
@@ -18,9 +20,14 @@ export default function Comments({totalComments, setTotalComments}) {
     .then(({data}) => {
       setCommentsList(data.comments)
       setTotalComments(data.total_count)
+      if (!data.total_count) {
+        setTotalComments(0)
+        setHasComments(false)
+      }
     })
-  }, [pageNumber])
+  }, [pageNumber]) 
 
+  
   function nextPage() {
     if (pageNumber < pageLimit) {
     setPageNumber(pageNumber + 1)
@@ -43,10 +50,10 @@ export default function Comments({totalComments, setTotalComments}) {
     }
   }
 
-
   return (
     <>
-      <CommentsButton setCommentsList={setCommentsList} setTotalComments={setTotalComments} pageNumber={pageNumber} pageLimit={pageLimit} decription={'Comments'}>
+      <p className='total'>Total comments: {totalComments}</p>   
+      {hasComments ? <CommentsButton setCommentsList={setCommentsList} setTotalComments={setTotalComments} pageNumber={pageNumber} pageLimit={pageLimit} decription={'Comments'}>
 
         <div className="comments-flex">
       <ul>
@@ -74,7 +81,7 @@ export default function Comments({totalComments, setTotalComments}) {
       </div>
 
     </div>
-      </CommentsButton>
+      </CommentsButton> : null }
     </>
    )
 }
