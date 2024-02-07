@@ -6,6 +6,7 @@ import Home from './components/Home'
 import Articles from './components/Articles'
 import Users from './components/Users'
 import SingleArticle from './components/SingleArticle'
+import SideBar from './components/SideBar'
 import { useState } from 'react'
 
 function App() {
@@ -17,10 +18,18 @@ function App() {
 
   return (
     <>
+  <div className="container">
+    <div className="header">
     <header>
       <Header/>
       <NavBar signedInUser={signedInUser}/>
     </header>
+  </div>
+  <div className="body">
+  <div className="sidebar">
+    <SideBar/>
+  </div>
+  <div className="content">
     <main>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -29,8 +38,13 @@ function App() {
       <Route path="/users" element={<Users setSignedInUser={setSignedInUser} signedInUser={signedInUser} />} />
     </Routes>
     </main>
+  </div>
+  </div>
+  <div className="footer"></div>
+</div>
     </>
   )
 }
 
 export default App
+

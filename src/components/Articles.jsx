@@ -46,7 +46,7 @@ export default function Articles() {
     <>
       <h2 id='top'>All Articles</h2>
 
-      <div className="flex-box">
+      <div className="articles">
       <ul>
         {articleList.map(article => {
           const dateCreated = `${new Date(article.created_at)}`;
@@ -56,10 +56,10 @@ export default function Articles() {
               <NavLink to={`/articles/${article.article_id}`}>
               <h3>{article.title}</h3>
               </NavLink>
+               <p className='author'>Written by: {article.author}</p>
                <p>Topic: {article.topic}</p>
-               <p>By: {article.author}</p>
-               <p>Total Votes: {article.votes}</p>
-               <p>Total Comments: {article.comment_count}</p>
+               <p>Total votes: {article.votes}</p>
+               <p>Total comments: {article.comment_count}</p>
                <p>Date created: {dateCreated}</p>
             </li>)
         })}

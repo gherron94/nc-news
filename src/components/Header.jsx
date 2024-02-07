@@ -1,3 +1,7 @@
 export default function Header() {
-  return <h1>Nc News</h1>
+  return (
+  <div className="pageName">
+  <h1>Nc News</h1>
+  </div>
+  )
 }
