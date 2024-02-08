@@ -1,6 +1,13 @@
+import { useContext } from "react"
 import { NavLink } from "react-router-dom"
+import UserContext from "./UserContext"
 
-export default function NavBar({signedInUser}) {
+
+
+export default function NavBar() {
+
+  const {signedInUser} = useContext(UserContext)
+  
   return (
     <nav>
       <ul>

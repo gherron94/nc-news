@@ -1,18 +1,17 @@
 // import { NavLink } from "react-router-dom"
 
-export default function NavBar() {
+export default function SideBar() {
   return (
     <nav>
-      <h2>Topics</h2>
+      <h2 className="topics">Topics</h2>
+      <div className='topic-divider'></div>
       <ul> 
         <li>
         Topic 1
         </li>
-        <div className='divider'></div>
         <li>
         Topic 2
         </li>
-        <div className='divider'></div>
         <li>
         Topic 3
         </li>
