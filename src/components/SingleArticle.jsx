@@ -15,6 +15,7 @@ export default function SingleArticle() {
   const [hasVoted, setHasVoted] = useState(false)
   const [upVoted, setUpVoted] = useState(false)
   const [downVoted, setdownVoted] = useState(false)
+  const [isCommentPosted, setISCommentPosted] = useState (false)
 
   useEffect(() => {
     newsApi.get(`/articles/${article_id}`)
@@ -32,6 +33,7 @@ export default function SingleArticle() {
       setHasVoted(true)
       setUpVoted(true)
       setdownVoted(false)
+      setISCommentPosted(false)
     }
     else if (hasVoted && upVoted) {
       setVoteCount(voteCount - 1)
@@ -39,6 +41,7 @@ export default function SingleArticle() {
       setHasVoted(false)
       setdownVoted(false)
       setUpVoted(false)
+      setISCommentPosted(false)
     }
   }
 
@@ -50,6 +53,7 @@ export default function SingleArticle() {
       setHasVoted(true)
       setdownVoted(true)
       setUpVoted(false)
+      setISCommentPosted(false)
     } 
     else if (hasVoted && downVoted) {
       setVoteCount(voteCount + 1)
@@ -57,6 +61,7 @@ export default function SingleArticle() {
       setHasVoted(false)
       setdownVoted(false)
       setUpVoted(false)
+      setISCommentPosted(false)
     }
   }
 
@@ -77,9 +82,9 @@ export default function SingleArticle() {
       </div>
       {hasVoted && upVoted ? <p className='vote-status'>Upvoted Article</p> : null}
       {hasVoted && downVoted ? <p className='vote-status'>Downvoted Article</p> : null}
-      <PostComment ></PostComment>
+      <PostComment isCommentPosted={isCommentPosted} setISCommentPosted={setISCommentPosted} ></PostComment>
     </div>
-    <Comments></Comments>
+    <Comments isCommentPosted={isCommentPosted} setISCommentPosted={setISCommentPosted}></Comments>
       </> 
    )
 }
