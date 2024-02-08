@@ -25,7 +25,7 @@ export default function Comments() {
         setHasComments(false)
       }
     })
-  }, [pageNumber]) 
+  }, [pageNumber, commentsList]) 
 
   
   function nextPage() {

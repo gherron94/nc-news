@@ -1,8 +1,13 @@
 import {useState} from 'react'
 import newsApi from './api'
 
+import { useContext } from 'react';
+import UserContext from "./UserContext"
 
-  export default function Users({signedInUser, setSignedInUser}) {
+
+  export default function Users() {
+
+  const {signedInUser, setSignedInUser} = useContext(UserContext)
 
   const [usersList, setUsersList]= useState([])
 
@@ -19,17 +24,17 @@ import newsApi from './api'
     })
   }
 
-
 return (
   <>  <h2>All Users</h2>
-  <div className="flex-box-user">
+ <div className="flex-box-user"> :
       <ul>
         {usersList.map(user => {
           return (
-            <li key={user.username}>
+          <li className={user.username !== signedInUser.username ? 'signed-out-card':'signed-in-card'} key={user.username} >
                <h3>{user.username}</h3>
                <img src={user.avatar_url} alt={`An image of ${user.username}'s avatar`}/>
-               {user.username !== signedInUser.username ? <button onClick={switchUser} >Select User</button> :<p>Signed In</p>}
+               {console.log()}
+               {user.username !== signedInUser.username ?   <button onClick={switchUser} >Select User</button> :<p><strong>Signed In</strong></p>}
             </li>)
         })}
       </ul>

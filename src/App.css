@@ -8,6 +8,7 @@
 body {
   overflow: hidden;
   margin: 0;
+  font-family:Arial, Helvetica, sans-serif;
  }
 
  /* GRID SETUP */
@@ -45,11 +46,10 @@ body {
   width: 100%;
   height: 33px;
   margin: 0;
-  background-color: black;
+  background-color: rgb(0, 0, 115)
 } 
 
 .header .pageName {
-  background-color: white;
   height: 40px;
 }
 
@@ -60,6 +60,7 @@ h1, h2 {
 h1 {
   margin: 0;
   padding: 5px 0; 
+  color: rgb(0, 0, 115);
 }
 
 .header nav ul {
@@ -134,24 +135,47 @@ ul {
     padding: 0;
   } 
   
-  .sidebar  nav ul li {
+  .sidebar nav ul li {
     margin: auto 0;
+    padding: 10px 0;
     font-size: 18px;
     text-align: center;
   }
   
-  .sidebar  nav ul .divider {
+  .sidebar nav ul .divider {
     background-color: rgb(255, 255, 255, 0.5);
     height: 30px;
     width:1px;
     margin: auto 0;
    }
 
+   .topics {
+    font-size: 22px;
+    margin-bottom: 5px;
+   }
+
+      /* .topic-divider {
+        padding: 0;
+        margin: 0 auto;
+        height: 1px;
+        background-color: rgba(0, 0, 0, 0.15);
+      } */
   /* MAIN CONTENT */
 
+  /* HOME PAGE */
+
+  .newspaper-img {
+    height: 100px;
+    display: block;
+    margin: 10px auto 25px auto;
+  }
+
+  .home-p {
+    margin: 15px;
+  }
   /* ALL ARTICLES */
 
-.articles ul {
+.articles ul {  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,6 +201,12 @@ ul {
   margin: 10px 0 5px 10px;
   font-size: 18px;
 }
+
+.articles ul li a{
+  color: black;
+  text-decoration: none;
+}
+
 
 .articles ul li p {
   margin: 5px 0 5px 10px;
@@ -224,9 +254,21 @@ ul {
   justify-content: center;
 }
 
-.vote-button {
+.voted {
   width: 75px;
   text-align: center;
+  border: red solid 3px;
+}
+
+.not-voted {
+  width: 75px;
+  text-align: center;
+}
+
+.vote-status {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .article-info {
@@ -289,6 +331,23 @@ ul {
   width: 150px;
 }
 
+/* NEW COMMENT */
+
+.new-comment {
+  width: 90%;
+  padding-top: 10px;
+  margin: 25px auto 10px auto;
+}
+
+.new-comment textarea {
+  display: block;
+  width: 50%;
+  margin-top: 5px;
+  border-radius: 5px;
+  min-width: 250px
+}
+
+
 /* USERS */ 
 
 .flex-box-user ul {
@@ -301,13 +360,20 @@ ul {
   width: 80%;
 }
 
-.flex-box-user ul li {
-  border: #000 solid 1px;
+.flex-box-user ul li{
   border-radius: 15px;
   margin: 5px;
   padding: 0;
   min-width: 250px;
   height: 250px;
+}
+
+.signed-out-card {
+  border: #000 solid 1px;
+}
+
+.signed-in-card {
+  border: rgb(0, 0, 115) solid 4px;
 }
 
 .flex-box-user ul li h3 {

@@ -1,13 +1,20 @@
 import { useParams } from 'react-router-dom'
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import newsApi from './api';
 import Comments from './Comments';
+import PostComment from './PostComment';
+import UserContext from './UserContext';
 
 export default function SingleArticle() {
+
+  const {signedInUser} = useContext(UserContext)
 
   const { article_id } = useParams()
   const [singleArticle, setSingleArticle] = useState({});
   const [voteCount, setVoteCount] = useState(0)
+  const [hasVoted, setHasVoted] = useState(false)
+  const [upVoted, setUpVoted] = useState(false)
+  const [downVoted, setdownVoted] = useState(false)
 
   useEffect(() => {
     newsApi.get(`/articles/${article_id}`)
@@ -18,15 +25,39 @@ export default function SingleArticle() {
   }, [])
 
   function upVote() {
-    setVoteCount(voteCount + 1)
-    newsApi.patch(`/articles/${article_id}`, {
-     "inc_votes": 1})
+
+    if (!hasVoted)  {
+      setVoteCount(voteCount + 1)
+      newsApi.patch(`/articles/${article_id}`, {"inc_votes": 1})
+      setHasVoted(true)
+      setUpVoted(true)
+      setdownVoted(false)
+    }
+    else if (hasVoted && upVoted) {
+      setVoteCount(voteCount - 1)
+      newsApi.patch(`/articles/${article_id}`, {"inc_votes": - 1})
+      setHasVoted(false)
+      setdownVoted(false)
+      setUpVoted(false)
+    }
   }
 
   function downVote() {
-    setVoteCount(voteCount - 1)
-    newsApi.patch(`/articles/${article_id}`, {
-      "inc_votes": -1})
+
+    if (!hasVoted) {
+      setVoteCount(voteCount - 1)
+      newsApi.patch(`/articles/${article_id}`, {"inc_votes": -1})
+      setHasVoted(true)
+      setdownVoted(true)
+      setUpVoted(false)
+    } 
+    else if (hasVoted && downVoted) {
+      setVoteCount(voteCount + 1)
+      newsApi.patch(`/articles/${article_id}`, {"inc_votes": 1})
+      setHasVoted(false)
+      setdownVoted(false)
+      setUpVoted(false)
+    }
   }
 
   return (
@@ -41,12 +72,15 @@ export default function SingleArticle() {
         <p>Date created: {`${new Date(singleArticle.created_at)}`}</p>
       </div>
       <div className='vote-buttons'>
-      <button onClick={upVote} className='vote-button'>upvote</button>
-      <button onClick={downVote} className='vote-button'>downvote</button>
+      <button className={hasVoted && upVoted ? 'voted':'not-voted'} onClick={upVote}>upvote</button>
+      <button className={hasVoted && downVoted ? 'voted':'not-voted'}onClick={downVote}>downvote</button>
       </div>
+      {hasVoted && upVoted ? <p className='vote-status'>Upvoted Article</p> : null}
+      {hasVoted && downVoted ? <p className='vote-status'>Downvoted Article</p> : null}
+      <PostComment ></PostComment>
     </div>
-    {<Comments></Comments>}
-      </>
+    <Comments></Comments>
+      </> 
    )
 }
 
