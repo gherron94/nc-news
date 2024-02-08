@@ -3,12 +3,11 @@ import newsApi from "./api"
 import { useParams } from 'react-router-dom'
 import UserContext from "./UserContext"
 
-export default function PostComment() {
+export default function PostComment({isCommentPosted, setISCommentPosted}) {
 
   const {signedInUser} = useContext(UserContext)
   const [commentBody, setCommentBody]= useState('')
   const { article_id } = useParams()
-  const [isCommentPosted, setISCommentPosted] = useState(false)
   // const [loadingComment, setLoadingComment] = useState(true)
   
   function handleOnChange(event) {
