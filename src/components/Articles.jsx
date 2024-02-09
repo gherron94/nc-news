@@ -1,8 +1,12 @@
 import {useEffect, useState} from 'react'
 import newsApi from './api'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams} from 'react-router-dom'
 
 export default function Articles() {
+
+  const {topic_id} = useParams()
+
+  console.log(topic_id)
 
   const [articleList, setArticleList] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
@@ -13,12 +17,27 @@ export default function Articles() {
   const pageLimit = Math.ceil(totalArticles / 10)
 
   useEffect(() => {
+    if (!topic_id)
     newsApi.get(`/articles?p=${pageNumber}`)
       .then(({data}) => {
         setArticleList(data.articles)
         setTotalArticles(data.total_count)
       })
-  }, [pageNumber])
+  }, [pageNumber, topic_id])
+
+
+    useEffect(() => {
+      if (topic_id) {
+        newsApi.get(`/articles?topic=${topic_id}&p=${pageNumber}`)
+        .then(({data}) => {
+          setArticleList(data.articles)
+          setTotalArticles(data.total_count)
+        })
+      }
+    }, [topic_id, pageNumber])
+
+  
+  
 
   function nextPage() {
     if (pageNumber < pageLimit) {
@@ -42,9 +61,11 @@ export default function Articles() {
     }
   }
   
-  return (
+  return (  
     <>
-      <h2 id='top'>All Articles</h2>
+     {topic_id? <h2 id='top'>{topic_id} Articles</h2> :
+     
+     <h2 id='top'>All Articles</h2>}
 
       <div className="articles">
       <ul>
@@ -67,7 +88,7 @@ export default function Articles() {
       <p className='total'>Total articles:  {totalArticles}</p>
       <p className='total'>Current Page: {pageNumber}</p>
     </div>
-
+ 
     <div id='pageButtons'>
 
       <div className='nextButton'>
@@ -79,6 +100,7 @@ export default function Articles() {
       </div>
 
     </div>
+
     </>
   )
 }

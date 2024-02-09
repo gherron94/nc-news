@@ -154,10 +154,10 @@ ul {
     margin-bottom: 5px;
    }
 
-      /* .topic-divider {
-        padding: 0;
-        margin: 0 auto;
-        height: 1px;
+  /* .topic-divider {
+    padding: 0;
+    margin: 0 auto;
+    height: 1px;
         background-color: rgba(0, 0, 0, 0.15);
       } */
   /* MAIN CONTENT */
@@ -239,6 +239,10 @@ ul {
 .total {
   text-align: center;
   margin: 5px;
+}
+
+#top {
+  text-transform: capitalize;
 }
 
 /* SINGLE ARTICLE */

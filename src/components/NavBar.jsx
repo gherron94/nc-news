@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom"
 import UserContext from "./UserContext"
 
 
-
+ 
 export default function NavBar() {
 
   const {signedInUser} = useContext(UserContext)
+
   
   return (
     <nav>

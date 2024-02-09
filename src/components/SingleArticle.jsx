@@ -1,13 +1,10 @@
 import { useParams } from 'react-router-dom'
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect} from 'react'
 import newsApi from './api';
 import Comments from './Comments';
 import PostComment from './PostComment';
-import UserContext from './UserContext';
 
 export default function SingleArticle() {
-
-  const {signedInUser} = useContext(UserContext)
 
   const { article_id } = useParams()
   const [singleArticle, setSingleArticle] = useState({});
@@ -16,6 +13,9 @@ export default function SingleArticle() {
   const [upVoted, setUpVoted] = useState(false)
   const [downVoted, setdownVoted] = useState(false)
   const [isCommentPosted, setISCommentPosted] = useState (false)
+
+
+ 
 
   useEffect(() => {
     newsApi.get(`/articles/${article_id}`)
