@@ -6,38 +6,49 @@ export default function Articles() {
 
   const {topic_id} = useParams()
 
-  console.log(topic_id)
-
   const [articleList, setArticleList] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [totalArticles, setTotalArticles] = useState(0)
   const [isFirstPage, setIsFirstPage] = useState(true)
   const [isLastPage, setIsLastPage] = useState(false)
+  const [sortByDate, setSortByDate] = useState(false)
+  const [sortByCommentCount, setSortByCommentCount] = useState(false)
+  const [sortByVotes, setSortByVotes] = useState(false)
+  const [isAscending, setIsAscending] = useState(false)
 
   const pageLimit = Math.ceil(totalArticles / 10)
 
+  let urlString = `/articles?`
+
+  if (topic_id) {
+    urlString+= `topic=${topic_id}&`
+  }
+
+  if (sortByDate) {
+    urlString+= `sort_by=created_at&`
+  }
+
+  if (sortByCommentCount) {
+    urlString+= `sort_by=comment_count&`
+  }
+
+  if (sortByVotes) {
+    urlString+= `sort_by=votes&`
+  }
+
+  if (isAscending) {
+    urlString+= `order=asc&`
+  }
+
+  urlString+= `p=${pageNumber}`
+
   useEffect(() => {
-    if (!topic_id)
-    newsApi.get(`/articles?p=${pageNumber}`)
+    newsApi.get(urlString)
       .then(({data}) => {
         setArticleList(data.articles)
         setTotalArticles(data.total_count)
       })
-  }, [pageNumber, topic_id])
-
-
-    useEffect(() => {
-      if (topic_id) {
-        newsApi.get(`/articles?topic=${topic_id}&p=${pageNumber}`)
-        .then(({data}) => {
-          setArticleList(data.articles)
-          setTotalArticles(data.total_count)
-        })
-      }
-    }, [topic_id, pageNumber])
-
-  
-  
+  }, [pageNumber, topic_id, sortByCommentCount, sortByDate, sortByVotes, isAscending])  
 
   function nextPage() {
     if (pageNumber < pageLimit) {
@@ -60,12 +71,47 @@ export default function Articles() {
       setIsLastPage(false)
     }
   }
-  
+
+  function handleDateSorting() {
+    setSortByDate(true)
+    setSortByCommentCount(false)
+    setSortByVotes(false)
+  }
+
+  function handleCommentSorting() {
+    setSortByCommentCount(true)
+    setSortByDate(false)
+    setSortByVotes(false)
+  }
+
+  function handleVotesSorting() {
+    setSortByVotes(true)
+    setSortByCommentCount(false)
+    setSortByDate(false)
+  }
+
+  function handleDesc() {
+    setIsAscending(false)
+  }
+
+  function handleAsc() {
+    setIsAscending(true)
+  }
+
   return (  
     <>
      {topic_id? <h2 id='top'>{topic_id} Articles</h2> :
      
      <h2 id='top'>All Articles</h2>}
+
+     <div className='sorting-bar'>
+      <p>Sort By:</p>
+      <button className={isAscending ? 'order-buttons-off' : 'order-buttons-on'}  onClick={handleDesc} >descending</button>
+      <button className={isAscending ? 'order-buttons-on' : 'order-buttons-off'} onClick={handleAsc}>ascending</button>
+      <button className='sorters' onClick={handleDateSorting} >Date</button>
+      <button className='sorters' onClick={handleCommentSorting}>Comments count</button>
+      <button className='sorters' onClick={handleVotesSorting}>Votes</button>
+     </div>
 
       <div className="articles">
       <ul>
