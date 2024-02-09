@@ -105,12 +105,18 @@ export default function Articles() {
      <h2 id='top'>All Articles</h2>}
 
      <div className='sorting-bar'>
+
+      <div className='first-row'>
       <p>Sort By:</p>
       <button className={isAscending ? 'order-buttons-off' : 'order-buttons-on'}  onClick={handleDesc} >descending</button>
       <button className={isAscending ? 'order-buttons-on' : 'order-buttons-off'} onClick={handleAsc}>ascending</button>
+      </div>
+
+      <div className='second-row'>
       <button className='sorters' onClick={handleDateSorting} >Date</button>
       <button className='sorters' onClick={handleCommentSorting}>Comments count</button>
       <button className='sorters' onClick={handleVotesSorting}>Votes</button>
+      </div>
      </div>
 
       <div className="articles">
