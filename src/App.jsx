@@ -17,6 +17,9 @@ function App() {
     avatar_url: 'https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953'
  })
 
+ const [isTopic, setISTopic] = useState(false)
+ const [topic, setTopic] = useState('') 
+
   return (
     <>
   <UserContext.Provider value={{signedInUser, setSignedInUser}}>
@@ -24,19 +27,20 @@ function App() {
     <div className="header">
     <header>
       <Header/>
-      <NavBar/>
+      <NavBar setISTopic={setISTopic}/>
     </header>
   </div>
   <div className="body">
   <div className="sidebar">
-    <SideBar/>
+    <SideBar setTopic={setTopic} setISTopic={setISTopic}/>
   </div>
   <div className="content">
     <main>
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/articles" element={<Articles />} />
+      <Route path="/articles" element={<Articles/>} />
       <Route path="/articles/:article_id" element={<SingleArticle />} />
+      <Route path={`/articles/topics/:topic_id`} element={<Articles/>} />
       <Route path="/users" element={<Users/>} />
     </Routes>
     </main>
