@@ -29,12 +29,9 @@ export default function NavBar({isTopics, setIsTopics}) {
         <li onClick={chooseTopic}>
           <NavLink to='/'>Home</NavLink>
         </li>
-        <div className='divider'></div>
         <li onClick={chooseTopic}>
           <NavLink to='/articles'>Articles</NavLink>
         </li>
-        <div className='divider'></div>
-
         <li onClick={showTopics}> 
           Topics
         </li>
@@ -50,12 +47,17 @@ export default function NavBar({isTopics, setIsTopics}) {
       </ul>  
       {isTopics ? <div id="topics-bar">
       <ul> 
-        {topicsList.map(topic => {
-        return (
-          <li onClick={chooseTopic} key={topic.slug}> 
-            <NavLink to={`articles/topics/${topic.slug}`}>{topic.slug}</NavLink>
-          </li>)
-        })}
+        <li onClick={chooseTopic}>
+          <NavLink to='articles/topics/cooking'> Cooking</NavLink>
+        </li>
+        <div className="divider"></div>
+        <li onClick={chooseTopic}>
+          <NavLink to='articles/topics/football'> Football</NavLink>
+        </li>
+        <div className="divider"></div>
+        <li onClick={chooseTopic}>
+          <NavLink to='articles/topics/coding'> Coding</NavLink>
+        </li>
     </ul>
       </div>  : null}
     </nav>
