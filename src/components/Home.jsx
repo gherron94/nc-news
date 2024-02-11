@@ -6,7 +6,7 @@ export default function Home() {
   <p className="home-p">Here you can find articles about Coding, Cooking and Footall. </p>
   <p className="home-p"> You can view all of our articles by clicking the article page on the navbar. </p>
   <p className="home-p"> Alternatively you can view all articles by a particular topic by using the topics sidebar. </p>
-  <p className="home-p"> Don't forget to sign-in to your profile, whch can be found on the users link on the navbar.</p>
+  <p className="home-p"> Don't forget to select your account in the profile section.</p>
   </>
   )
 }

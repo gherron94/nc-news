@@ -1,9 +1,8 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   overflow: hidden;
@@ -14,29 +13,49 @@ body {
  /* GRID SETUP */
 
  .container {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: 75px 1fr;
+}
+
+.container-add-topics {
+  height: 100dvh;
+  width: 100vw;
+  display: grid;
+  grid-template-rows: 100px 1fr;
 }
 
 .body {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
   overflow: hidden;
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  /* background-color: blue; */
   overflow-y: scroll;
-}
-
-.sidebar {
-  border-right: solid rgba(0, 0, 0, 0.25) 1px ;
 }
 
 .header {
   border-bottom: black 1px solid;
+}
+
+.footer {
+  background-color: rgb(0, 0, 115);
+  min-height: 25px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer p {
+color: white;  
+margin-left: 10px; 
 }
 
  /* HEADER & NAVBAR */
@@ -44,7 +63,7 @@ body {
 .header nav {
   border-top: solid black 1px;
   width: 100%;
-  height: 33px;
+  height: 35px;
   margin: 0;
   background-color: rgb(0, 0, 115)
 } 
@@ -55,6 +74,10 @@ body {
 
 h1, h2 {
   text-align: center;
+}
+
+h2 {
+  margin-top: 10px;
 }
 
 h1 {
@@ -79,6 +102,7 @@ ul {
   padding: 0 10px;
   margin: auto 0;
   font-size: 15px;
+  color: white;
 }
 
 .header nav ul .divider {
@@ -124,37 +148,28 @@ ul {
   margin: auto 0;
   }
 
-  /* SIDEBAR */
+#topics-bar {
+  height: 25px;
+  color: #000;
+}
 
-  .sidebar nav ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start ;
-    margin: 0;
-    height: 100%;
-    padding: 0;
-  } 
-  
-  .sidebar nav ul li {
-    margin: auto 0;
-    padding: 10px 0;
-    font-size: 18px;
-    text-align: center;
-  }
-  
-  .sidebar nav ul .divider {
-    background-color: rgb(255, 255, 255, 0.5);
-    height: 30px;
-    width:1px;
-    margin: auto 0;
-   }
+#topics-bar ul {
+  display: flex;
+  justify-content: space-evenly;
+}
 
-   .topics {
-    font-size: 22px;
-    margin-bottom: 5px;
-   }
+#topics-bar ul li  { 
+  margin: auto 0;
+  padding: 0;
+}
 
-  /* MAIN CONTENT */
+#topics-bar ul li a { 
+  color: rgb(0, 0, 115);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+ 
+/* MAIN CONTENT */
 
   /* HOME PAGE */
 
@@ -178,7 +193,6 @@ ul {
   width: 220px;
   margin: 0 auto;
 }
-
 
 .sorting-bar button {
   margin-bottom: 10px;
@@ -208,7 +222,7 @@ text-align: center;
   flex-direction: column;
   padding: 0;
   margin: 0 auto;
-  width: 85%;
+  width: 90%;
 }
 
 .articles ul li {
@@ -224,7 +238,7 @@ text-align: center;
 }
 
 .articles ul li h3 {
-  margin: 10px 0 5px 10px;
+  margin: 5px 0 0 0 ;
   font-size: 18px;
 }
 
@@ -235,11 +249,11 @@ text-align: center;
 
 
 .articles ul li p {
-  margin: 5px 0 5px 10px;
+  margin: 10px 0;
   }
 
 .articles .author {
-  margin: 0 0 15px 10px;
+  margin: 5px 0 15px 0;
 }
 
 #pageButtons {
@@ -387,15 +401,15 @@ text-align: center;
   align-items: center;
   padding: 0;
   margin: 0 auto;
-  width: 80%;
+  width: 95%;
 }
 
 .flex-box-user ul li{
   border-radius: 15px;
   margin: 5px;
   padding: 0;
-  min-width: 250px;
-  height: 250px;
+  width: 160px;
+  height: 160px;
 }
 
 .signed-out-card {
@@ -408,13 +422,12 @@ text-align: center;
 
 .flex-box-user ul li h3 {
   text-align: center;
-  font-size: 25px;
-  margin-top: 5px;
+  font-size: 20px;
+  margin-top: 2.5px;
 }
 
 .flex-box-user img {
-  min-height: 50px;
-  max-height: 150px;
+  height: 100px;
   display: block;
   margin: 0 auto;
 }

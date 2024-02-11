@@ -25,8 +25,8 @@ import UserContext from "./UserContext"
   }
 
 return (
-  <>  <h2>All Users</h2>
- <div className="flex-box-user"> :
+  <>  <h2>Select User</h2>
+ <div className="flex-box-user"> 
       <ul>
         {usersList.map(user => {
           return (
