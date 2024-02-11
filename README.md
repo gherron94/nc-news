@@ -1,8 +1,20 @@
-# React + Vite
+# NC News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+NC News API is a mobile first news app which allows users to view articles, sort them by topic, add and delete comments and vote on them.
 
-Currently, two official plugins are available:
+Here is a link to the hosted version:
+https://vermillion-platypus-db3649.netlify.app
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+
+This project can be cloned to your local machine using the command `git clone` followed by the code provided on gitHub.
+
+Once opened in your code editor, use `npm install` to install the npm packages in the package.json file.
+
+You can then either run the development version of the app by running `npm run dev` or run the production version by running `npm run build` followed by `netlify deploy --prod` and providing the directory `./dist`
+
+## Minimum versions
+
+To run this project locally your machine will need a minimum of the following versions of node.js:
+
+- node.js - v20.8.1
