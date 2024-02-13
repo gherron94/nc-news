@@ -13,6 +13,7 @@ export default function SingleArticle() {
   const [upVoted, setUpVoted] = useState(false)
   const [downVoted, setdownVoted] = useState(false)
   const [isCommentPosted, setISCommentPosted] = useState (false)
+  const [isLoadingArticle, setIsLoadingArticle] = useState(true)
 
 
  
@@ -20,6 +21,7 @@ export default function SingleArticle() {
   useEffect(() => {
     newsApi.get(`/articles/${article_id}`)
     .then(({data}) => {
+      setIsLoadingArticle(false)
       setSingleArticle(data.article)
       setVoteCount(data.article.votes)
     })
@@ -67,6 +69,8 @@ export default function SingleArticle() {
 
   return (
     <>
+    {isLoadingArticle ? <div className='loading' ><h3>Loading Article...</h3></div> : 
+     <>
     <div className='single-article'>
     <div className='article-info'>
         <h3>{singleArticle.title}</h3>
@@ -85,6 +89,8 @@ export default function SingleArticle() {
       <PostComment isCommentPosted={isCommentPosted} setISCommentPosted={setISCommentPosted} ></PostComment>
     </div>
     <Comments isCommentPosted={isCommentPosted} setISCommentPosted={setISCommentPosted}></Comments>
+    </>
+      }
       </> 
    )
 }

@@ -15,6 +15,7 @@ export default function Articles() {
   const [sortByCommentCount, setSortByCommentCount] = useState(false)
   const [sortByVotes, setSortByVotes] = useState(false)
   const [isAscending, setIsAscending] = useState(false)
+  const [isLoadingArticles, setIsLoadingArticles] = useState(true)
 
   const pageLimit = Math.ceil(totalArticles / 10)
 
@@ -45,6 +46,7 @@ export default function Articles() {
   useEffect(() => {
     newsApi.get(urlString)
       .then(({data}) => {
+        setIsLoadingArticles(false)
         setArticleList(data.articles)
         setTotalArticles(data.total_count)
       })
@@ -100,6 +102,8 @@ export default function Articles() {
 
   return (  
     <>
+    {isLoadingArticles ? <div className='loading' ><h3>Loading Articles...</h3></div> : 
+     <>
      {topic_id? <h2 id='top'>{topic_id} Articles</h2> :
      
      <h2 id='top'>All Articles</h2>}
@@ -150,8 +154,9 @@ export default function Articles() {
       <div className='previousButton'>
          {isLastPage ? null :  <button onClick={nextPage}>Next Page</button>}
       </div>
-
     </div>
+</>
+      }
 
     </>
   )

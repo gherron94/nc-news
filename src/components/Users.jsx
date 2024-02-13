@@ -7,12 +7,14 @@ import UserContext from "./UserContext"
 
   export default function Users() {
 
-  const {signedInUser, setSignedInUser} = useContext(UserContext)
 
+  const {signedInUser, setSignedInUser} = useContext(UserContext)
   const [usersList, setUsersList]= useState([])
+  const [isLoadingUsers, setIsLoadingUsers] = useState(true)
 
   newsApi.get('/users')
       .then(({data}) => {
+        setIsLoadingUsers(false)
         setUsersList(data.users)
       })
   
@@ -25,7 +27,10 @@ import UserContext from "./UserContext"
   }
 
 return (
-  <>  <h2>Select User</h2>
+  <>
+  {isLoadingUsers ? <div className='loading' ><h3>Loading Users...</h3></div> : 
+  <>
+ <h2>Select User</h2>
  <div className="flex-box-user"> 
       <ul>
         {usersList.map(user => {
@@ -39,7 +44,9 @@ return (
         })}
       </ul>
     </div>
-</>
+    </>
+  }
+  </>
 )
 }
 
