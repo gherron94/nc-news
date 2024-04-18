@@ -22,8 +22,6 @@ function App() {
 		};
 	}
 
-	console.log(user);
-
 	const [signedInUser, setSignedInUser] = useState(user);
 
 	useEffect(() => {

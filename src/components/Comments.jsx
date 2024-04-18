@@ -4,7 +4,7 @@ import newsApi from "./api";
 import CommentsButton from "./CommentsButton";
 import UserContext from "./UserContext";
 
-export default function Comments({ isCommentPosted, setISCommentPosted }) {
+export default function Comments({ setISCommentPosted }) {
 	const { signedInUser } = useContext(UserContext);
 
 	const { article_id } = useParams();
@@ -79,23 +79,32 @@ export default function Comments({ isCommentPosted, setISCommentPosted }) {
 						<ul>
 							{commentsList.map((comment) => {
 								const dateCreated = `${new Date(comment.created_at)}`;
-								return (
-									<li key={comment.comment_id}>
-										<h3>{comment.author}</h3>
-										<p>{comment.body}</p>
-										<p>Votes: {comment.votes}</p>
-										<p>Date created: {dateCreated}</p>
-										{signedInUser.username === comment.author ? (
-											<button
-												className="delete-comment-button"
-												value={comment.comment_id}
-												onClick={deleteComment}
-											>
-												Delete Comment
-											</button>
-										) : null}
-									</li>
-								);
+								if (comment.author)
+									return (
+										<li key={comment.comment_id}>
+											<div className="comments-header">
+												<img
+													src={comment.avatar_url}
+													alt={`${comment.author}'s avatar`}
+												/>
+												<h3>{comment.author}</h3>
+											</div>
+											<div className="comments-body">
+												<p>{comment.body}</p>
+												<p>Votes: {comment.votes}</p>
+												<p>Date created: {dateCreated}</p>
+											</div>
+											{signedInUser.username === comment.author ? (
+												<button
+													className="delete-comment-button"
+													value={comment.comment_id}
+													onClick={deleteComment}
+												>
+													Delete Comment
+												</button>
+											) : null}
+										</li>
+									);
 							})}
 						</ul>
 					</div>

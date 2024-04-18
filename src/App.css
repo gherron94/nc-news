@@ -358,20 +358,32 @@ ul {
 }
 
 .comments-flex ul li {
-	margin: 5px 0;
+	margin: 7.5px 0;
 	padding: 0;
 	width: 100%;
 	min-height: 125px;
+	display: flex;
+	flex-direction: column;
 }
 
-.comments-flex ul li h3 {
+.comments-header {
+	display: flex;
+	margin: 5px 20px;
+	column-gap: 5px;
+}
+
+.comments-header h3 {
+	margin: auto 0;
 	font-size: 17px;
-	margin: 5px 30px;
 }
 
-.comments-flex ul li p {
+.comments-header img {
+	height: 25px;
+}
+
+.comments-body {
 	font-size: 15px;
-	margin: 5px 30px;
+	margin: 5px 20px;
 }
 
 #commentsButtons {
