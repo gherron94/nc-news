@@ -1,0 +1,15 @@
+.newspaper-img {
+	height: 150px;
+	display: block;
+	margin: 10px auto 25px auto;
+	border-radius: 5px;
+}
+
+.home-p {
+	margin: 15px;
+}
+
+.home-section {
+	max-width: 550px;
+	margin: 0 auto;
+}

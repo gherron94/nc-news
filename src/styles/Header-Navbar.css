@@ -1,0 +1,102 @@
+.header nav {
+	border-top: solid rgb(0, 0, 115) 1px;
+	width: 100%;
+	height: 35px;
+	margin: 0;
+	background-color: rgb(0, 0, 115);
+}
+
+.header .pageName {
+	height: 40px;
+}
+
+h1,
+h2 {
+	text-align: center;
+}
+
+h2 {
+	margin-top: 10px;
+}
+
+h1 {
+	margin: 0;
+	padding: 5px 0;
+	color: rgb(0, 0, 115);
+}
+
+.header nav ul {
+	display: flex;
+	justify-content: flex-start;
+	height: 100%;
+	margin: 0 5px;
+	column-gap: 10px;
+}
+
+ul {
+	list-style: none;
+}
+
+.header nav ul li {
+	margin: auto 0;
+	font-size: 15px;
+	color: white;
+}
+
+.header nav ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+#loggedIn {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	margin-left: auto;
+	color: white;
+	height: 100%;
+	column-gap: 5px;
+}
+
+#loggedIn p {
+	font-size: 15px;
+	margin: auto 0;
+}
+
+#currentUser {
+	margin-left: auto;
+	height: 100%;
+}
+
+#loggedIn img {
+	height: 30px;
+	display: block;
+	margin: auto 0;
+}
+
+#topics-bar {
+	height: 25px;
+	border-bottom: solid rgb(0, 0, 115) 2.5px;
+}
+
+#topics-bar ul {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#topics-bar ul li {
+	margin: auto 0;
+	padding: 0;
+}
+
+#topics-bar ul li a {
+	color: rgb(0, 0, 115);
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+#topics-bar ul .divider {
+	background-color: rgb(0, 0, 115);
+	height: 25px;
+	width: 2.5px;
+}

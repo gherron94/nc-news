@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	overflow: hidden;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+/* GRID SETUP */
+
+.container {
+	height: 100dvh;
+	width: 100vw;
+	display: grid;
+	grid-template-rows: 75px 1fr;
+}
+
+.container-add-topics {
+	height: 100dvh;
+	width: 100vw;
+	display: grid;
+	grid-template-rows: 100px 1fr;
+}
+
+.body {
+	display: grid;
+	grid-template-rows: 1fr;
+	overflow: hidden;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.header {
+	border-bottom: black 1px solid;
+}
+
+.footer {
+	background-color: rgb(0, 0, 115);
+	min-height: 25px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.footer p {
+	color: white;
+	margin-left: 10px;
+}
