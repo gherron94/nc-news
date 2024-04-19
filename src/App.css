@@ -90,9 +90,9 @@ h1 {
 .header nav ul {
 	display: flex;
 	justify-content: flex-start;
-	margin: 0;
 	height: 100%;
-	padding: 0;
+	margin: 0 5px;
+	column-gap: 10px;
 }
 
 ul {
@@ -100,7 +100,6 @@ ul {
 }
 
 .header nav ul li {
-	padding: 0 10px;
 	margin: auto 0;
 	font-size: 15px;
 	color: white;
