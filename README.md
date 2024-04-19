@@ -1,6 +1,6 @@
 # NC News App
 
-NC News API is a mobile first news app which allows users to view articles, sort them by topic, add and delete comments and vote on them.
+NC News is a mobile first news app which allows users to view articles, sort them by topic, add and delete comments and vote on them.
 
 Here is a link to the hosted version:
 https://vermillion-platypus-db3649.netlify.app
