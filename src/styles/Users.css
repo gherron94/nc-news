@@ -21,7 +21,7 @@
 }
 
 .signed-in-card {
-	border: rgb(0, 0, 115) solid 4px;
+	border: rgb(0, 0, 0) solid 6px;
 }
 
 .flex-box-user ul li h3 {
