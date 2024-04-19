@@ -1,7 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import newsApi from "./api";
-
-import { useContext } from "react";
 import UserContext from "./UserContext";
 
 export default function Users() {
