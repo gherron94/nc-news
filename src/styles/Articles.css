@@ -9,23 +9,27 @@
 
 .sorting-bar button {
 	margin-bottom: 10px;
+	padding: 1px 2px;
 }
 
 .sorting-bar .first-row {
 	display: flex;
+	column-gap: 5px;
 }
 
 .sorting-bar .second-row {
 	display: flex;
+	column-gap: 6px;
 }
 
 .sorting-bar p {
 	margin-top: 5px;
 	text-align: center;
+	margin: auto 0;
 }
 
 .order-buttons-on {
-	border: rgb(0, 0, 0) solid 3px;
+	border: rgb(0, 0, 0) solid 2px;
 }
 
 .articles ul {
