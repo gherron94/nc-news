@@ -23,7 +23,8 @@ body {
 	height: 100dvh;
 	width: 100vw;
 	display: grid;
-	grid-template-rows: 100px 1fr;
+	grid-template-rows: 90px 1fr;
+	transition: 0.5s ease-in-out;
 }
 
 .body {
