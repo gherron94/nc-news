@@ -41,11 +41,9 @@ export default function NavBar({ isTopics, setIsTopics }) {
 						<li onClick={chooseTopic}>
 							<NavLink to="articles/topics/cooking"> Cooking</NavLink>
 						</li>
-						<div className="divider"></div>
 						<li onClick={chooseTopic}>
 							<NavLink to="articles/topics/football"> Football</NavLink>
 						</li>
-						<div className="divider"></div>
 						<li onClick={chooseTopic}>
 							<NavLink to="articles/topics/coding"> Coding</NavLink>
 						</li>
