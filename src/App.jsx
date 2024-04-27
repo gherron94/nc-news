@@ -1,6 +1,5 @@
 import "./styles.jsx";
 import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Articles from "./components/Articles";
@@ -34,7 +33,6 @@ function App() {
 				<div className={isTopics ? "container-add-topics" : "container"}>
 					<div className="header">
 						<header>
-							<Header />
 							<NavBar isTopics={isTopics} setIsTopics={setIsTopics} />
 						</header>
 					</div>
