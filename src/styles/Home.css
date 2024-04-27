@@ -1,9 +1,14 @@
+/* .home-container {
+	display: flex;
+	flex-direction: column;
+} */
+
 .newspaper-img {
 	width: 70%;
 	max-width: 375px;
 	display: block;
 	border-radius: 5px;
-	margin: 15px auto 25px auto;
+	margin: 15px auto;
 }
 
 .home-section {
@@ -19,25 +24,44 @@
 	display: block;
 	margin: 15px auto;
 	padding: 7.5px 25px;
-	font-size: 15px;
 	border-radius: 7.5px;
+	font-size: 15px;
 	cursor: pointer;
 	border: none;
 	background-color: rgb(220, 220, 220);
 }
 
+a {
+	text-decoration: none;
+}
+
 @media screen and (min-width: 768px) {
+	.home-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		column-gap: 50px;
+	}
+
+	.newspaper-img {
+		width: 375px;
+		border-radius: 5px;
+		margin: 0;
+	}
+
 	.home-p {
-		font-size: 20px;
+		font-size: 21px;
 	}
 
 	.home-section {
-		max-width: 650px;
+		margin: 0;
 	}
 
 	.home-button {
-		margin: 25px auto;
-		padding: 10px 30px;
-		font-size: 20px;
+		margin: 35px auto;
+		padding: 12.5px 35px;
+		font-size: 21px;
+		text-decoration: none;
 	}
 }
