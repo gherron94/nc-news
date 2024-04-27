@@ -116,14 +116,14 @@ export default function Articles() {
 		<>
 			{isLoadingArticles ? (
 				<div className="loading">
-					<h3>Loading Articles...</h3>
+					<h2>Loading Articles...</h2>
 				</div>
 			) : (
 				<>
 					{topic_id ? (
-						<h2 id="top">{topic_id} Articles</h2>
+						<h1 id="top">{topic_id} Articles</h1>
 					) : (
-						<h2 id="top">All Articles</h2>
+						<h1 id="top">All Articles</h1>
 					)}
 					<div className="sorting-bar">
 						<div className="sort-dropdown">

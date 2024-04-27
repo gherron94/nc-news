@@ -24,11 +24,11 @@ export default function Users() {
 		<>
 			{isLoadingUsers ? (
 				<div className="loading">
-					<h3>Loading Users...</h3>
+					<h2>Loading Users...</h2>
 				</div>
 			) : (
 				<>
-					<h2>Select User</h2>
+					<h1>Select User</h1>
 					<div className="flex-box-user">
 						<ul>
 							{usersList.map((user) => {
@@ -41,7 +41,7 @@ export default function Users() {
 										}
 										key={user.username}
 									>
-										<h3>{user.username}</h3>
+										<h2>{user.username}</h2>
 										<img
 											src={user.avatar_url}
 											alt={`An image of ${user.username}'s avatar`}

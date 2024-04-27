@@ -56,3 +56,26 @@ body {
 	color: white;
 	margin-left: 10px;
 }
+
+/* headings */
+
+h1,
+h2 {
+	text-align: center;
+}
+
+h2 {
+	margin-top: 10px;
+}
+
+h1 {
+	padding: 3px 0;
+	font-size: 25px;
+	color: rgb(0, 0, 0);
+}
+
+@media screen and (min-width: 768px) {
+	h1 {
+		font-size: 35px;
+	}
+}

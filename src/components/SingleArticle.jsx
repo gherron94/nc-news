@@ -62,13 +62,13 @@ export default function SingleArticle() {
 		<>
 			{isLoadingArticle ? (
 				<div className="loading">
-					<h3>Loading Article...</h3>
+					<h2>Loading Article...</h2>
 				</div>
 			) : (
 				<>
 					<div className="single-article">
 						<div className="article-info">
-							<h3>{singleArticle.title}</h3>
+							<h2>{singleArticle.title}</h2>
 							<p>By: {singleArticle.author}</p>
 							<p>Topic: {singleArticle.topic}</p>
 							<p>{singleArticle.body}</p>
