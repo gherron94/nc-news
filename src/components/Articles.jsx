@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import newsApi from "./api";
 import { NavLink, useParams } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 export default function Articles() {
 	const { topic_id } = useParams();
@@ -173,15 +174,19 @@ export default function Articles() {
 						<p className="total">Current Page: {pageNumber}</p>
 					</div>
 					<div id="pageButtons">
-						<div className="nextButton">
+						<div className="previousButton">
 							{isFirstPage ? null : (
-								<button onClick={previousPage}>Pevious Page</button>
+								<HashLink to="/Articles/#top">
+									<button onClick={previousPage}>Pevious Page</button>
+								</HashLink>
 							)}
 						</div>
 
-						<div className="previousButton">
+						<div className="nextButton">
 							{isLastPage ? null : (
-								<button onClick={nextPage}>Next Page</button>
+								<HashLink to="/Articles/#top">
+									<button onClick={nextPage}>Next Page</button>
+								</HashLink>
 							)}
 						</div>
 					</div>
