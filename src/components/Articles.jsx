@@ -127,7 +127,7 @@ export default function Articles() {
 					)}
 					<div className="sorting-bar">
 						<div className="sort-dropdown">
-							<h4 className="sort">Sort Order: {sortOrder}</h4>
+							<h3 className="sort">Sort Order: {sortOrder}</h3>
 							<div className="sort-list">
 								<p onClick={handleDesc}>Descending</p>
 								<p onClick={handleAsc}>Ascending</p>
@@ -135,17 +135,11 @@ export default function Articles() {
 						</div>
 
 						<div className="filter-dropdown">
-							<h4 className="filter">Sort By: {sortBy}</h4>
+							<h3 className="filter">Sort By: {sortBy}</h3>
 							<div className="filter-list">
-								<p className="sorters" onClick={handleDateSorting}>
-									Date
-								</p>
-								<p className="sorters" onClick={handleCommentSorting}>
-									Comment ount
-								</p>
-								<p className="sorters" onClick={handleVotesSorting}>
-									Votes
-								</p>
+								<p onClick={handleDateSorting}>Date</p>
+								<p onClick={handleCommentSorting}>Comment count</p>
+								<p onClick={handleVotesSorting}>Votes</p>
 							</div>
 						</div>
 					</div>
@@ -158,7 +152,7 @@ export default function Articles() {
 								return (
 									<li key={article.article_id}>
 										<NavLink to={`/articles/${article.article_id}`}>
-											<h3>{article.title}</h3>
+											<h2>{article.title}</h2>
 										</NavLink>
 										<p className="author">Written by: {article.author}</p>
 										<p>Topic: {article.topic}</p>
