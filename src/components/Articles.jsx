@@ -13,8 +13,10 @@ export default function Articles() {
 	const [sortByDate, setSortByDate] = useState(false);
 	const [sortByCommentCount, setSortByCommentCount] = useState(false);
 	const [sortByVotes, setSortByVotes] = useState(false);
+	const [sortBy, setSortBy] = useState("Date");
 	const [isAscending, setIsAscending] = useState(false);
 	const [isLoadingArticles, setIsLoadingArticles] = useState(true);
+	const [sortOrder, setSortOrder] = useState("Descending");
 
 	const pageLimit = Math.ceil(totalArticles / 10);
 
@@ -83,26 +85,31 @@ export default function Articles() {
 		setSortByDate(true);
 		setSortByCommentCount(false);
 		setSortByVotes(false);
+		setSortBy("Date");
 	}
 
 	function handleCommentSorting() {
 		setSortByCommentCount(true);
 		setSortByDate(false);
 		setSortByVotes(false);
+		setSortBy("Comment count");
 	}
 
 	function handleVotesSorting() {
 		setSortByVotes(true);
 		setSortByCommentCount(false);
 		setSortByDate(false);
+		setSortBy("Votes");
 	}
 
 	function handleDesc() {
 		setIsAscending(false);
+		setSortOrder("Descending");
 	}
 
 	function handleAsc() {
 		setIsAscending(true);
+		setSortOrder("Ascending");
 	}
 
 	return (
@@ -120,35 +127,21 @@ export default function Articles() {
 					)}
 					<div className="sorting-bar">
 						<div className="sort-dropdown">
-							<h4 className="sort">Order:</h4>
+							<h4 className="sort">Sort Order: {sortOrder}</h4>
 							<div className="sort-list">
-								<p
-									className={
-										isAscending ? "order-buttons-off" : "order-buttons-on"
-									}
-									onClick={handleDesc}
-								>
-									Descending
-								</p>
-								<p
-									className={
-										isAscending ? "order-buttons-on" : "order-buttons-off"
-									}
-									onClick={handleAsc}
-								>
-									Ascending
-								</p>
+								<p onClick={handleDesc}>Descending</p>
+								<p onClick={handleAsc}>Ascending</p>
 							</div>
 						</div>
 
 						<div className="filter-dropdown">
-							<h4 className="filter">Sort By:</h4>
+							<h4 className="filter">Sort By: {sortBy}</h4>
 							<div className="filter-list">
 								<p className="sorters" onClick={handleDateSorting}>
 									Date
 								</p>
 								<p className="sorters" onClick={handleCommentSorting}>
-									Comments count
+									Comment ount
 								</p>
 								<p className="sorters" onClick={handleVotesSorting}>
 									Votes
