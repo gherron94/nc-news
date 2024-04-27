@@ -16,6 +16,7 @@ export default function Articles() {
 	const [sortBy, setSortBy] = useState("Date");
 	const [isAscending, setIsAscending] = useState(false);
 	const [isLoadingArticles, setIsLoadingArticles] = useState(true);
+	const [isError, setIsError] = useState(false);
 	const [sortOrder, setSortOrder] = useState("Descending");
 
 	const pageLimit = Math.ceil(totalArticles / 10);
@@ -45,11 +46,18 @@ export default function Articles() {
 	urlString += `p=${pageNumber}`;
 
 	useEffect(() => {
-		newsApi.get(urlString).then(({ data }) => {
-			setIsLoadingArticles(false);
-			setArticleList(data.articles);
-			setTotalArticles(data.total_count);
-		});
+		newsApi
+			.get(urlString)
+			.then(({ data }) => {
+				setIsLoadingArticles(false);
+				setIsLoadingArticles(false);
+				setArticleList(data.articles);
+				setTotalArticles(data.total_count);
+			})
+			.catch(() => {
+				setIsLoadingArticles(false);
+				setIsError(true);
+			});
 	}, [
 		pageNumber,
 		topic_id,
@@ -118,6 +126,8 @@ export default function Articles() {
 				<div className="loading">
 					<h2>Loading Articles...</h2>
 				</div>
+			) : isError ? (
+				<h2>Error: Cannot load articles</h2>
 			) : (
 				<>
 					{topic_id ? (
