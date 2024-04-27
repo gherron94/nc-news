@@ -74,3 +74,42 @@ ul {
 	text-decoration: none;
 	text-transform: capitalize;
 }
+
+/* desktop */
+
+@media screen and (min-width: 768px) {
+	.header nav {
+		height: 50px;
+	}
+
+	.header nav ul {
+		margin: 0 15px;
+		column-gap: 20px;
+	}
+
+	.header nav ul li {
+		font-size: 17px;
+	}
+
+	#loggedIn p {
+		font-size: 17px;
+	}
+
+	#loggedIn img {
+		height: 32px;
+	}
+
+	#topics-bar {
+		height: 30px;
+	}
+
+	#topics-bar ul {
+		display: flex;
+		justify-content: flex-start;
+		column-gap: 20px;
+	}
+
+	#topics-bar ul li a {
+		font-size: 16px;
+	}
+}
