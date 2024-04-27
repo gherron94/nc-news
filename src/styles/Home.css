@@ -1,3 +1,11 @@
+.newspaper-img {
+	width: 70%;
+	max-width: 375px;
+	display: block;
+	border-radius: 5px;
+	margin: 15px auto 25px auto;
+}
+
 .home-section {
 	max-width: 550px;
 	margin: 0 auto;
@@ -7,13 +15,29 @@
 	margin: 15px;
 }
 
+.home-button {
+	display: block;
+	margin: 15px auto;
+	padding: 7.5px 25px;
+	font-size: 15px;
+	border-radius: 7.5px;
+	cursor: pointer;
+	border: none;
+	background-color: rgb(220, 220, 220);
+}
+
 @media screen and (min-width: 768px) {
 	.home-p {
-		font-size: 22px;
+		font-size: 20px;
 	}
 
 	.home-section {
-		max-width: 750px;
-		margin: 0 auto;
+		max-width: 650px;
+	}
+
+	.home-button {
+		margin: 25px auto;
+		padding: 10px 30px;
+		font-size: 20px;
 	}
 }
