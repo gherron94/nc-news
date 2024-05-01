@@ -16,7 +16,7 @@ export default function Articles() {
 	const [sortBy, setSortBy] = useState("Date");
 	const [isAscending, setIsAscending] = useState(false);
 	const [isLoadingArticles, setIsLoadingArticles] = useState(true);
-	const [isError, setIsError] = useState(false);
+	const [isALlArticlesErrors, setisALlArticlesErrors] = useState(false);
 	const [sortOrder, setSortOrder] = useState("Descending");
 
 	const pageLimit = Math.ceil(totalArticles / 10);
@@ -56,7 +56,7 @@ export default function Articles() {
 			})
 			.catch(() => {
 				setIsLoadingArticles(false);
-				setIsError(true);
+				setisALlArticlesErrors(true);
 			});
 	}, [
 		pageNumber,
@@ -126,7 +126,7 @@ export default function Articles() {
 				<div className="loading">
 					<h2>Loading Articles...</h2>
 				</div>
-			) : isError ? (
+			) : isALlArticlesErrors ? (
 				<h2>Error: Cannot load articles</h2>
 			) : (
 				<>

@@ -6,11 +6,18 @@ export default function Users() {
 	const { signedInUser, setSignedInUser } = useContext(UserContext);
 	const [usersList, setUsersList] = useState([]);
 	const [isLoadingUsers, setIsLoadingUsers] = useState(true);
+	const [isUsersError, setisUsersError] = useState(false);
 
-	newsApi.get("/users").then(({ data }) => {
-		setIsLoadingUsers(false);
-		setUsersList(data.users);
-	});
+	newsApi
+		.get("/users")
+		.then(({ data }) => {
+			setIsLoadingUsers(false);
+			setUsersList(data.users);
+		})
+		.catch(() => {
+			setIsLoadingUsers(false);
+			setisUsersError(true);
+		});
 
 	function switchUser(event) {
 		const username = event.target.parentNode.childNodes[0].innerText;
@@ -26,6 +33,8 @@ export default function Users() {
 				<div className="loading">
 					<h2>Loading Users...</h2>
 				</div>
+			) : isUsersError ? (
+				<h2>Error: Cannot load Users</h2>
 			) : (
 				<>
 					<h1>Select User</h1>
