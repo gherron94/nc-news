@@ -1,6 +1,7 @@
 .single-article {
 	margin: 0 auto;
 	padding: 10px 0;
+	width: 95%;
 }
 
 .vote-buttons {
@@ -28,11 +29,105 @@
 }
 
 .article-info {
-	width: 90%;
+	width: 95%;
+	max-width: 550px;
 	margin: 25px auto 10px auto;
 }
 
-.article-info h3,
+.article-info h2 {
+	margin: 10px 0;
+}
+
 .article-info p {
-	margin: 10px;
+	margin: 10px 5px;
+}
+
+.new-comment {
+	width: 95%;
+	max-width: 550px;
+	margin: 0 auto;
+}
+
+.new-comment label {
+	margin-bottom: 5px;
+	display: block;
+}
+
+.new-comment button {
+	display: block;
+	margin: 2.5px 0;
+}
+
+#comment-body {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+	/* .single-article {
+		margin: 0 auto;
+		padding: 10px 0;
+		width: 95%;
+	}
+
+	.vote-buttons {
+		margin: 0 auto;
+		display: flex;
+		justify-content: center;
+		column-gap: 10px;
+	}
+
+	.voted {
+		width: 75px;
+		text-align: center;
+		border: red solid 3px;
+	}
+
+	.not-voted {
+		width: 75px;
+		text-align: center;
+	}
+
+	.vote-status {
+		font-size: 15px;
+		text-align: center;
+		margin-bottom: 0;
+	}
+
+	.article-info {
+		width: 95%;
+		max-width: 550px;
+		margin: 25px auto 10px auto;
+	}
+
+	.article-info h2 {
+		margin: 10px 0;
+	}
+
+	.article-info p {
+		margin: 10px 5px;
+	}
+
+	.new-comment {
+		width: 95%;
+		max-width: 550px;
+		margin: 0 auto;
+	}
+
+	.new-comment label {
+		margin-bottom: 5px;
+		display: block;
+	}
+
+	.new-comment button {
+		display: block;
+		margin: 2.5px 0;
+	}
+
+	#comment-body {
+		display: block;
+		width: 100%;
+		margin: 0 auto;
+	} */
 }

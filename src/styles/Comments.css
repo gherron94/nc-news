@@ -67,13 +67,12 @@
 }
 
 .delete-comment-button {
-	display: block;
-	margin: 5px auto;
+	margin: 5px auto 5px 30px;
 	padding: 2.5px 5px;
 }
 
 .new-comment {
-	width: 90%;
+	width: 95%;
 	padding-top: 10px;
 	margin: 25px auto 10px auto;
 }

@@ -30,18 +30,18 @@ export default function PostComment({ isCommentPosted, setISCommentPosted }) {
 	}
 
 	return (
-		<div className="new-comment">
-			<form onSubmit={addComment}>
-				<label htmlFor="body">Add a new comment:</label>
+		<>
+			<form onSubmit={addComment} className="new-comment">
+				<label htmlFor="comment-body">Add a new comment:</label>
 				<textarea
 					onChange={handleOnChange}
 					value={commentBody}
-					id="body"
+					id="comment-body"
 					rows="5"
 				></textarea>
 				<button>Add comment</button>
 			</form>
 			{isCommentPosted ? <p>Comment has been added</p> : null}
-		</div>
+		</>
 	);
 }
