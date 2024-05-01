@@ -13,13 +13,20 @@ export default function SingleArticle() {
 	const [downVoted, setdownVoted] = useState(false);
 	const [isCommentPosted, setISCommentPosted] = useState(false);
 	const [isLoadingArticle, setIsLoadingArticle] = useState(true);
+	const [isArticleError, setisArticlesError] = useState(false);
 
 	useEffect(() => {
-		newsApi.get(`/articles/${article_id}`).then(({ data }) => {
-			setIsLoadingArticle(false);
-			setSingleArticle(data.article);
-			setVoteCount(data.article.votes);
-		});
+		newsApi
+			.get(`/articles/${article_id}`)
+			.then(({ data }) => {
+				setIsLoadingArticle(false);
+				setSingleArticle(data.article);
+				setVoteCount(data.article.votes);
+			})
+			.catch(() => {
+				setIsLoadingArticle(false);
+				setisArticlesError(true);
+			});
 	}, []);
 
 	function upVote() {
@@ -64,6 +71,8 @@ export default function SingleArticle() {
 				<div className="loading">
 					<h2>Loading Article...</h2>
 				</div>
+			) : isArticleError ? (
+				<h2>Error: Cannot load Article</h2>
 			) : (
 				<>
 					<div className="single-article">
