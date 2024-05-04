@@ -39,6 +39,7 @@
 .flex-box-user button {
 	display: block;
 	margin: 8px auto 0 auto;
+	padding: 1px;
 }
 
 .flex-box-user p {
